@@ -1,0 +1,18 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<h1>Register Account</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <br>
+        {% for field in form %}
+            {{field.label}}<br>
+            {{field}}<br>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Register Account">
+    </form> 
+    <br>
+    <br>
+    {{form.errors}}
+    <div>Already have an account? <a href="{% url 'login' %}">Login</a></div>
+{% endblock content %}
